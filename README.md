@@ -1,9 +1,9 @@
 # Breakout ![status](https://img.shields.io/badge/Status-Finished-red.svg)
 
-Is a little example of the famous game "Breakout"
+Is a little example of the famous game "Breakout".
 
-## How to run it
+## How to try it
 
-1. Download the entire project
+1. Download or clone the project.
 
-2. Execute the file `index.html`
+2. Execute the file `index.html`.
