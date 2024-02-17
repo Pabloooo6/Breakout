@@ -1,0 +1,145 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Breakout amb canvas</title>
+  <style>
+    #mainScreen {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      margin-top: -215px;
+      margin-left: -225px;
+      width: 450px;
+      height: 370px;
+      background-image: url("imatges/alcachofas.jpg");
+      border: 1px solid #000000;
+      text-align: center;
+      font-family: "Verdana";
+      font-size: 1.5em;
+      color: #000000;
+      -webkit-text-fill-color: #1636ff;
+    }
+    #principal{
+      width: 960px;
+      margin: 0 auto;
+      visibility: hidden;
+    }
+    #marcador {
+      font-family: "Verdana";
+      font-size: 1em;
+      font-weight: bold;
+      color: black;
+      background: #a3a352;
+      margin-top: 20px;
+      position:relative;
+      padding: 0px;
+      width: 960px;
+      height: 150px;
+      border: 3px black solid;
+    }
+    #marcadorEsquerra {
+      position:absolute;
+      display: inline;
+      padding-left: 5px;
+      width: 180px;
+      height: auto;
+      border: 0px #000 solid;
+    }
+    #marcadorCentre {
+      position:absolute;
+      display: inline;
+      padding: 5px;
+      width: 440px;
+      height: auto;
+      left: 220px;
+      border: 0px solid #000;
+    }
+    #marcadorDreta {
+      position:absolute;
+      display: inline;
+      padding: 5px;
+      width: 180px;
+      height: auto;
+      left: 700px;
+      font-weight: normal;
+      border: 0px solid #000;
+    }
+    #joc{
+      position:relative;
+      margin-top: 20px;
+    }
+    #msgDiv {
+      position: absolute;
+      width: 100%;
+      height: auto;
+      visibility: hidden;
+      border: 0px solid #000;
+      text-align: center;
+      font-family: "Verdana";
+      font-size: 3em;
+      top: 70%;
+    }
+    #game {
+      background-color: #b8b8b8;  /* color gris clar  */
+      border: #e2a53b 50px solid;
+      border-bottom-width: 0;
+      display: block;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+
+<body>
+<audio id="sound">
+  <source id="soundSource" src="sonidos/PlazaMii.mp3" type="audio/mpeg">
+</audio>
+
+<div id="mainScreen">
+  <img id="audioIcon1" src="imatges/audioOff.gif" style=" margin-left: auto; margin-left: -540px;">
+  <form name="idForm" style="margin-top:180px">
+    Name:&nbsp;&nbsp;<input type="text" id="playerName" size="10" maxlength="10" style="font-size: 0.8em"/>&nbsp;&nbsp;
+    Level:&nbsp;&nbsp;<select id="levelSelect" style="font-size: 0.8em">
+    <option value="0">1</option>
+    <option value="1">2</option>
+    <option value="2">3</option>
+    <option value="3">4</option>
+  </select>
+  </form>
+  <button id="startButton" style="width: 100px; height: 40px; font-size: 0.8em; margin-top:20px"><b>PLAY</b></button>
+</div>
+
+<div id="principal">
+  <div id="marcador">
+    <div id="marcadorEsquerra">
+      <table>
+        <tr>
+          <td id="marcadorEsquerraLevel" rowspan="2">Level:</td>
+          <td rowspan="2">&nbsp;&nbsp;</td>
+          <td><img id="increaseLevelButton" src="imatges/amunt.jpg"></td>
+        </tr>
+        <tr>
+          <td><img id="decreaseLevelButton" src="imatges/avall.jpg"></td>
+        </tr>
+      </table>
+
+    </div>
+    <div id="marcadorCentre">
+      <div id="marcadorCentreNick" style="padding: 5px;">Nick: </div>
+      <div id="marcadorCentreScore" style="padding: 5px;">Marcador: 0 punts</div>
+      <div id="marcadorCentreLives" style="padding: 5px; display: flex">
+        <br>Intents restants:&nbsp;&nbsp;&nbsp;<img src="imatges/corVerd.jpg">&nbsp;
+        <img src="imatges/corVerd.jpg">&nbsp;<img src="imatges/corVerd.jpg">&nbsp;<img src="imatges/corVerd.jpg">&nbsp;</div>
+    </div>
+    <div id="marcadorDreta" style="padding: 5px;">Top 3:<br><br></div>
+  </div>
+  <div id="joc">
+    <div id="msgDiv"></div>
+    <canvas id="game"></canvas>
+  </div>
+  <div id="audioButton"><img id="audioIcon" src="imatges/audioOn.gif" style="margin-top:20px"></div>
+</div>
+<script src="scripts/jquery-1.11.2.min.js"></script>
+<script src="scripts/breakout.js" defer></script>
+</body>
+</html>
